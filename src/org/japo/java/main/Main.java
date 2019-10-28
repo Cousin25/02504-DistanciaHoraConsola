@@ -24,61 +24,54 @@ import java.util.Scanner;
  * @author ANDRÉS COSÍN ZAMARREÑO - Cousin183@gmail.com
  */
 public class Main {
-public static final Scanner SCN
-        =new Scanner(System.in, "Windows-1252")
-        .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
 
-    
+    public static final Scanner SCN
+            = new Scanner(System.in, "Windows-1252")
+                    .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
 
     public static void main(String[] args) {
-        Calendar cal=Calendar.getInstance();
-        
-        try{
+        Calendar cal = Calendar.getInstance();
+
+        try {
             System.out.println("Distancia entre horas");
-            
+
             System.out.println("================");
-            
+
             System.out.print("Hora de inicio......:");
-            int hEnt =SCN.nextInt();
+            int hEnt = SCN.nextInt();
             SCN.nextLine();
             System.out.print("Minuto de inicio......:");
-            int mEnt =SCN.nextInt();
+            int mEnt = SCN.nextInt();
             SCN.nextLine();
             System.out.print("Segundo de inicio......:");
-            int sEnt =SCN.nextInt();
+            int sEnt = SCN.nextInt();
             SCN.nextLine();
-            
+
             System.out.println("-----");
-            
-           
-            
+
             //hora actual
-            int hAct=cal.get(Calendar.HOUR_OF_DAY);
-            int mAct=cal.get(Calendar.MINUTE);
-            int sAct=cal.get(Calendar.SECOND);
-            
-           
-            
+            int hAct = cal.get(Calendar.HOUR_OF_DAY);
+            int mAct = cal.get(Calendar.MINUTE);
+            int sAct = cal.get(Calendar.SECOND);
+
             //tiempos
-            int tiempoEnt=hEnt * 3600 + mEnt * 60 +sEnt;
-            int tiempoAct=hAct * 3600 + mAct * 60 + sAct;
-            
+            int tiempoEnt = hEnt * 3600 + mEnt * 60 + sEnt;
+            int tiempoAct = hAct * 3600 + mAct * 60 + sAct;
+
             int hDiferencia = tiempoAct - tiempoEnt;
-            
-            int horas_clase = hDiferencia /3600;
+
+            int horas_clase = hDiferencia / 3600;
             int mins_en_seg = hDiferencia % 3600;
-            
+
             int minutos_clase = mins_en_seg / 60;
             int segundos_clase = mins_en_seg % 60;
-            
+
             System.out.printf("Tiempo actual: %02d:%02d:%02d%n", hAct, mAct, sAct);
             System.out.printf("Tiempo de clase: %02d:%02d:%02d%n", horas_clase, minutos_clase, segundos_clase);
-            
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.print("ERROR DE ENTRADA!!!!!!!");
         } finally {
-            
+        }
     }
-    
-}}
+}
